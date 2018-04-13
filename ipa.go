@@ -19,11 +19,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ubccr/kerby/khttp"
+	//"github.com/ubccr/kerby/khttp"
 )
 
 const (
-	IpaClientVersion  = "2.156"
+	IpaClientVersion  = "2.213"
 	IpaDatetimeFormat = "20060102150405Z"
 )
 
@@ -212,7 +212,7 @@ func (c *Client) rpc(method string, params []string, options map[string]interfac
 		req.Header.Set("Cookie", fmt.Sprintf("ipa_session=%s", c.session))
 	} else {
 		// default to using Kerberos auth (SPNEGO)
-		client.Transport = &khttp.Transport{Next: tr, KeyTab: c.KeyTab}
+		// client.Transport = &khttp.Transport{Next: tr, KeyTab: c.KeyTab}
 	}
 
 	res, err := client.Do(req)
